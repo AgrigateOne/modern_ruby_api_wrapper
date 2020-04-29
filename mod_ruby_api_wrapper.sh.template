@@ -1,0 +1,4 @@
+#!/bin/bash
+source /usr/local/share/chruby/chruby.sh && \
+  chruby $RUBY && \
+  exec bundle exec $CURRENT/modern_ruby_api_wrapper.rb
