@@ -1,5 +1,5 @@
 [Unit]
-Description=Crossbeams Shared Config
+Description=Crossbeams Modern Ruby API Wrapper
 Requires=network.target
 
 [Service]
@@ -8,7 +8,7 @@ User=$USER
 Group=$USER
 WorkingDirectory=$CURRENT
 Restart=on-failure
-ExecStart=$SHARED/shared_config_wrapper.sh
+ExecStart=$SHARED/mod_ruby_api_wrapper.sh
 
 [Install]
 WantedBy=multi-user.target
