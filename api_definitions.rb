@@ -8,7 +8,7 @@ class ApiDefinitions
     'The Modern Ruby API wrapper is running'
   end
 
-  def run_api_request_get(url, use_ssl, headers = {})
+  def run_api_request_get(url, use_ssl = true, headers = {})
     uri, http       = setup_http(url, use_ssl)
     api_request     = Net::HTTP::Get.new(uri.request_uri)
     headers.each do |key, val|
@@ -16,10 +16,10 @@ class ApiDefinitions
     end
 
     response = http.request(api_request)
-    [response.code, response.body]
+    { :response_code => response.code, :body => response.body }
   end
 
-  def run_api_request_post(url, use_ssl, params, headers = {})
+  def run_api_request_post(url, params, use_ssl = true, headers = {})
     uri, http       = setup_http(url, use_ssl)
     api_request     = Net::HTTP::Post.new(uri.request_uri)
     headers.each do |key, val|
@@ -28,12 +28,12 @@ class ApiDefinitions
 
     api_request.set_form_data(params)
     response = http.request(api_request)
-    [response.code, response.body]
+    { :response_code => response.code, :body => response.body }
   end
 
   private
 
-  def setup_http(url, use_ssl)
+  def setup_http(url, use_ssl = true)
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
 
