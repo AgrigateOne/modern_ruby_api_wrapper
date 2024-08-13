@@ -4,7 +4,7 @@ lock '~> 3.13.0'
 set :chruby_ruby, 'ruby-2.5.5'
 
 set :application, 'modern_ruby_api_wrapper'
-set :repo_url, 'git@github.com:NoSoft-SA/modern_ruby_api_wrapper.git'
+set :repo_url, 'git@github.com:AgrigateOne/modern_ruby_api_wrapper.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
